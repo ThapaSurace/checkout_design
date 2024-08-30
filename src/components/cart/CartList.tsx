@@ -24,11 +24,11 @@ const CartList = () => {
         {cartItems.map((item) => (
           <TableRow key={item.id}>
             <TableCell className="font-medium">
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col items-start gap-1 sm:gap-2 sm:flex-row sm:items-center">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-32 h-32 object-cover rounded-lg"
+                  className="w-16 h-16 md:w-32 md:h-32 object-cover rounded-lg"
                 />
                 <div>
                   <div className="font-semibold text-gray-900">{item.name}</div>
