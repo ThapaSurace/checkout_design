@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { Separator } from "./ui/separator";
@@ -28,7 +29,9 @@ const OrderSummaryCard = () => {
       </CardContent>
 
       <CardFooter>
-        <Button className="w-full">Go To Checkout</Button>
+        <Link to="/checkout" className="w-full">
+          <Button className="w-full">Go To Checkout</Button>
+        </Link>
       </CardFooter>
     </Card>
   );
