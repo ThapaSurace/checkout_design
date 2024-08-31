@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import CartCard from "@/components/cart/CartCard";
+import SmallCartList from "@/components/SmallCartList";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
@@ -97,7 +97,7 @@ const Checkout = () => {
           <h1 className="mb-4 font-bold text-xl text-gray-800">
             Order Summary
           </h1>
-          <CartCard />
+          <SmallCartList />
           <Separator className="my-4" />
           {/* sub total */}
           <div className="mt-6 space-y-3 font-medium text-gray-700">
