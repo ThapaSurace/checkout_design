@@ -9,6 +9,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState("shipping");
@@ -21,29 +22,55 @@ const Checkout = () => {
     }
   };
 
+  const getBreadcrumbItemClass = (step: string) => {
+    if (currentStep === step) {
+      return "text-sky-500"; // Blue for the current step
+    }
+    if (step === "shipping" && currentStep !== "shipping") {
+      return "text-green-500"; // Green for completed steps
+    }
+    if (step === "payment" && currentStep === "review") {
+      return "text-green-500"; // Green for completed steps
+    }
+    return "text-gray-500"; // Default color for steps that are not yet completed
+  };
+
   return (
     <MaxWidthWrapper className="my-10">
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem>Shipping</BreadcrumbItem>
+          <BreadcrumbItem
+            className={cn("text-lg", getBreadcrumbItemClass("shipping"))}
+          >
+            Shipping
+          </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbItem>Payment</BreadcrumbItem>
+          <BreadcrumbItem
+            className={cn("text-lg", getBreadcrumbItemClass("payment"))}
+          >
+            Payment
+          </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbItem>Review</BreadcrumbItem>
+          <BreadcrumbItem
+            className={cn("text-lg", getBreadcrumbItemClass("review"))}
+          >
+            Review
+          </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="mt-4 flex gap-24">
+      <div className="mt-10 flex gap-24">
         <div className="basis-[60%]">
-          {currentStep == "shipping" && (
+          {currentStep === "shipping" && (
             <ShippingForm onNext={handleNextStep} />
           )}
-          {currentStep == "payment" && <PaymentForm />}
-          {currentStep == "review" && <OrderDetails />}
+          {currentStep === "payment" && <PaymentForm />}
+          {currentStep === "review" && <OrderDetails />}
         </div>
         <div className="basis-[40%]">right</div>
       </div>
     </MaxWidthWrapper>
   );
 };
+
 export default Checkout;
