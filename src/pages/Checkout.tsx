@@ -9,6 +9,7 @@ import SmallCartList from "@/components/SmallCartList";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import CheckoutBreadcrumb from "@/components/CheckOutBreadCrum";
+import SubTotal from "@/components/SubTotal";
 
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState("");
@@ -50,25 +51,9 @@ const Checkout = () => {
             Order Summary
           </h1>
           <SmallCartList />
-          <Separator className="my-4" />
           {/* sub total */}
-          <div className="mt-6 space-y-3 font-medium text-gray-700">
-            <div className="flex justify-between items-center">
-              <span>Subtotal</span>
-              <span>$1000</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Shipping</span>
-              <span>$0</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Taxes</span>
-              <span>$0</span>
-            </div>
-            <div className="flex justify-between items-center text-lg font-semibold border-t pt-4">
-              <span>Total</span>
-              <span>$1000</span>
-            </div>
+          <div className="my-4">
+            <SubTotal />
           </div>
           <Separator className="md:hidden my-4" />
           <div className="mt-4 flex justify-end md:hidden">
