@@ -11,7 +11,10 @@ const SmallCartList = () => {
       <Separator />
       <div className="space-y-6 mt-4">
         {cartItems.map((item) => (
-          <div key={item.id} className="flex justify-between items-center">
+          <div
+            key={item.id}
+            className="flex justify-between items-center relative border-b pb-4"
+          >
             <div className="flex items-center gap-2">
               <img
                 className="w-16 h-16 rounded-md"
@@ -26,9 +29,11 @@ const SmallCartList = () => {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="">
               <span>${item.quantity * item.price}</span>
-              {/* <span className="text-sky-500">Edit</span> */}
+              <span className="text-sky-500 hover:text-sky-600 text-xs absolute -top-1 right-0 cursor-pointer">
+                Edit
+              </span>
             </div>
           </div>
         ))}
