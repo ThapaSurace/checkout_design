@@ -13,7 +13,7 @@ interface CheckoutBreadcrumbProps {
 const CheckoutBreadcrumb = ({ currentStep }: CheckoutBreadcrumbProps) => {
   const getBreadcrumbItemClass = (step: string) => {
     if (currentStep === step) {
-      return "text-sky-500";
+      return "text-gray-600 font-medium";
     }
     if (step === "shipping" && currentStep !== "shipping") {
       return "text-green-500";
@@ -25,7 +25,7 @@ const CheckoutBreadcrumb = ({ currentStep }: CheckoutBreadcrumbProps) => {
   };
 
   return (
-    <Breadcrumb>
+    <Breadcrumb className="border-b w-full pb-3">
       <BreadcrumbList>
         <BreadcrumbItem
           className={cn(
