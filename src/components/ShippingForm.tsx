@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import {
@@ -12,6 +12,8 @@ import { Button } from "./ui/button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { shippingFormValidationSchema } from "./utils/yup";
 import ErrorMessage from "./ErrorMessage";
+import { useNavigate } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type FormInput = {
   fname: string;
@@ -25,11 +27,13 @@ type FormInput = {
 };
 
 const ShippingForm = ({ onNext }: { onNext: () => void }) => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     setValue,
     getValues,
+    control,
     formState: { errors },
   } = useForm<FormInput>({
     resolver: yupResolver(shippingFormValidationSchema),
@@ -47,6 +51,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             type="text"
             id="fname"
             placeholder="John Doe"
+            className={errors.fname && "focus:border-red-600 border-red-600"}
             {...register("fname")}
           />
           <ErrorMessage error={errors.fname} />
@@ -57,6 +62,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             type="text"
             id="address"
             placeholder="Chapali"
+            className={errors.address && "border-red-600 focus:border-red-600"}
             {...register("address")}
           />
           <ErrorMessage error={errors.address} />
@@ -69,6 +75,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             type="text"
             id="city"
             placeholder="KTM"
+            className={errors.city && "border-red-600 focus:border-red-600"}
             {...register("city")}
           />
           <ErrorMessage error={errors.city} />
@@ -79,6 +86,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             type="text"
             id="state"
             placeholder="Bagmati"
+            className={errors.state && "border-red-600 focus:border-red-600"}
             {...register("state")}
           />
           <ErrorMessage error={errors.state} />
@@ -91,27 +99,40 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             type="text"
             id="zip"
             placeholder="10001"
+            className={errors.zip && "border-red-600 focus:border-red-600"}
             {...register("zip")}
           />
           <ErrorMessage error={errors.zip} />
         </div>
         <div className="flex-1 space-y-2">
           <Label htmlFor="country">Country</Label>
-          <Select
-            {...register("country")}
-            onValueChange={(value) => setValue("country", value)} // Manually set the value
-            value={getValues("country")} // Bind the value to the current form state
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select a country" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="np">Nepal</SelectItem>
-              <SelectItem value="ind">India</SelectItem>
-              <SelectItem value="cn">China</SelectItem>
-              <SelectItem value="us">USA</SelectItem>
-            </SelectContent>
-          </Select>
+          <Controller
+            name="country"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                onValueChange={(value) => {
+                  setValue("country", value, { shouldValidate: true });
+                }}
+                value={getValues("country")}
+              >
+                <SelectTrigger
+                  className={
+                    errors.country && "border-red-600 focus:border-red-600"
+                  }
+                >
+                  <SelectValue placeholder="Select a country" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="np">Nepal</SelectItem>
+                  <SelectItem value="ind">India</SelectItem>
+                  <SelectItem value="cn">China</SelectItem>
+                  <SelectItem value="us">USA</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          />
 
           <ErrorMessage error={errors.country} />
         </div>
@@ -123,6 +144,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             type="text"
             id="phone"
             placeholder="980000000"
+            className={errors.phone && "border-red-600 focus:border-red-600"}
             {...register("phone")}
           />
           <ErrorMessage error={errors.phone} />
@@ -134,11 +156,25 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
             id="email"
             placeholder="example@example.com"
             {...register("email")}
+            className={errors.email && "border-red-600 focus:border-red-600"}
           />
           <ErrorMessage error={errors.email} />
         </div>
       </div>
-      <Button type="submit">Proceed to Payment</Button>
+      <div className="flex justify-between items-center pt-6">
+        <Button
+          type="button"
+          className="w-[200px]"
+          onClick={() => navigate("/")}
+        >
+          <ChevronLeft className="h-6 w-6" />
+          Back to Cart
+        </Button>
+        <Button type="submit" className="w-[200px]">
+          Proceed to Payment
+          <ChevronRight className="h-6 w-6" />
+        </Button>
+      </div>
     </form>
   );
 };
