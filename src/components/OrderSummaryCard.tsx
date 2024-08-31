@@ -29,7 +29,7 @@ const OrderSummaryCard = () => {
       </CardContent>
 
       <CardFooter>
-        <Link to="/checkout" className="w-full">
+        <Link to="/checkout?step=shipping" className="w-full">
           <Button className="w-full">Go To Checkout</Button>
         </Link>
       </CardFooter>
