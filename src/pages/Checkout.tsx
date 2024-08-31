@@ -4,17 +4,11 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import OrderDetails from "@/components/OrderDetails";
 import PaymentForm from "@/components/PaymentForm";
 import ShippingForm from "@/components/ShippingForm";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 import SmallCartList from "@/components/SmallCartList";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import CheckoutBreadcrumb from "@/components/CheckOutBreadCrum";
 
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState("");
@@ -38,51 +32,9 @@ const Checkout = () => {
     }
   };
 
-  const getBreadcrumbItemClass = (step: string) => {
-    if (currentStep === step) {
-      return "text-sky-500";
-    }
-    if (step === "shipping" && currentStep !== "shipping") {
-      return "text-green-500";
-    }
-    if (step === "payment" && currentStep === "review") {
-      return "text-green-500";
-    }
-    return "text-gray-400";
-  };
-
   return (
     <MaxWidthWrapper className=" my-4 md:my-10">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem
-            className={cn(
-              "text-sm md:text-base",
-              getBreadcrumbItemClass("shipping")
-            )}
-          >
-            Shipping
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem
-            className={cn(
-              "text-sm md:text-base",
-              getBreadcrumbItemClass("payment")
-            )}
-          >
-            Payment
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem
-            className={cn(
-              "text-sm md:text-base",
-              getBreadcrumbItemClass("review")
-            )}
-          >
-            Review
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <CheckoutBreadcrumb currentStep={currentStep} />
 
       <div className="mt-10 flex flex-col md:flex-row gap-10 sm:gap-16 md:gap-24">
         <div className="basis-[60%]">
