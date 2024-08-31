@@ -57,7 +57,9 @@ const Checkout = () => {
           </div>
           <Separator className="md:hidden my-4" />
 
-          <Button className="w-full mt-6 md:hidden">Place Order</Button>
+          {currentStep == "review" && (
+            <Button className="w-full mt-6 md:hidden">Place Order</Button>
+          )}
         </div>
       </div>
     </MaxWidthWrapper>
