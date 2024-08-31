@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, X } from "lucide-react";
 import { Button } from "../ui/button";
 
 const CartList = () => {
@@ -47,8 +47,15 @@ const CartList = () => {
                 </Button>
               </div>
             </TableCell>
-            <TableCell className="text-right">
+            <TableCell className="text-right relative">
               ${item.price * item.quantity}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-2 right-0 cursor-pointer"
+              >
+                <X />
+              </Button>
             </TableCell>
           </TableRow>
         ))}
