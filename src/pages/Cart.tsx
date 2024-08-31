@@ -1,4 +1,4 @@
-import CartList from "@/components/cart/CartList";
+import CartList from "@/components/CartList";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import OrderSummaryCard from "@/components/OrderSummaryCard";
 
