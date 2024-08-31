@@ -64,7 +64,7 @@ const Checkout = () => {
           {currentStep === "shipping" && (
             <ShippingForm onNext={handleNextStep} />
           )}
-          {currentStep === "payment" && <PaymentForm />}
+          {currentStep === "payment" && <PaymentForm onNext={handleNextStep} />}
           {currentStep === "review" && <OrderDetails />}
         </div>
         <div className="basis-[40%]">right</div>
