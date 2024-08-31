@@ -56,9 +56,8 @@ const Checkout = () => {
             <SubTotal />
           </div>
           <Separator className="md:hidden my-4" />
-          <div className="mt-4 flex justify-end md:hidden">
-            <Button>Place Order</Button>
-          </div>
+
+          <Button className="w-full mt-6 md:hidden">Place Order</Button>
         </div>
       </div>
     </MaxWidthWrapper>
