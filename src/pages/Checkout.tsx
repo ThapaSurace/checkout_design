@@ -6,8 +6,6 @@ import PaymentForm from "@/components/PaymentForm";
 import ShippingForm from "@/components/ShippingForm";
 import { useState } from "react";
 import SmallCartList from "@/components/SmallCartList";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 import CheckoutBreadcrumb from "@/components/CheckOutBreadCrum";
 import SubTotal from "@/components/SubTotal";
 
