@@ -3,16 +3,16 @@ import { Separator } from "./ui/separator";
 const SubTotal = () => {
   return (
     <>
-      <div className="space-y-4">
-        <div className=" text-muted-foreground flex justify-between">
+      <div className="space-y-4 text-gray-700">
+        <div className="flex justify-between">
           <span>Subtotal</span>
           <span>$100</span>
         </div>
-        <div className=" text-muted-foreground flex justify-between">
+        <div className="flex justify-between">
           <span>Shipping</span>
           <span>$0</span>
         </div>
-        <div className=" text-muted-foreground flex justify-between">
+        <div className="flex justify-between">
           <span>Taxes</span>
           <span>$0</span>
         </div>
