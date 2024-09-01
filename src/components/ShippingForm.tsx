@@ -14,6 +14,7 @@ import { shippingFormValidationSchema } from "./utils/yup";
 import ErrorMessage from "./ErrorMessage";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 type FormInput = {
   fname: string;
@@ -28,6 +29,7 @@ type FormInput = {
 
 const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const {
     register,
     handleSubmit,
@@ -41,6 +43,7 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   const onSubmit = (values: FormInput) => {
     console.log(values);
     onNext();
+    toast({ description: "Shipping form submitted sucessfully!!" });
   };
   return (
     <>

@@ -8,11 +8,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { paymentFormValidationSchema } from "./utils/yup";
 import * as Yup from "yup";
 import ErrorMessage from "./ErrorMessage";
+import { useToast } from "@/hooks/use-toast";
 
 type FormValues = Yup.InferType<typeof paymentFormValidationSchema>;
 
 const PaymentForm = ({ onNext }: { onNext: () => void }) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const {
     register,
     handleSubmit,
@@ -24,6 +26,7 @@ const PaymentForm = ({ onNext }: { onNext: () => void }) => {
   const onSubmit = (values: FormValues) => {
     console.log(values);
     onNext();
+    toast({ description: "Payment form submitted sucessfully!!" });
   };
   return (
     <div>
