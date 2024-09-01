@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+<!-- # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -47,4 +47,23 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
   },
 })
+``` -->
+
+# My Vite React Project
+
+This is a Vite-powered React project. Follow the steps below to set up and run the project locally.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14.18.0 or higher)
+- [npm](https://www.npmjs.com/) (v6.14.4 or higher) or [Yarn](https://yarnpkg.com/)
+
+## Getting Started
+
+### 1. Clone the Repository
+
+Clone this repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
 ```
