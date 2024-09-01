@@ -25,8 +25,8 @@ const PaymentForm = ({ onNext }: { onNext: () => void }) => {
 
   const onSubmit = (values: FormValues) => {
     console.log(values);
+    toast({ description: "Payment from submitted sucessfully!!" });
     onNext();
-    toast({ description: "Payment form submitted sucessfully!!" });
   };
   return (
     <div>
