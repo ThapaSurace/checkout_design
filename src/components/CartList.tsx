@@ -22,7 +22,7 @@ const CartList = () => {
       </TableHeader>
       <TableBody>
         {cartItems.map((item) => (
-          <TableRow key={item.id} className="group">
+          <TableRow key={item.id} className="group cursor-pointer">
             <TableCell className="font-medium">
               <div className="flex flex-col items-start gap-1 sm:gap-2 sm:flex-row sm:items-center">
                 <img
@@ -52,7 +52,7 @@ const CartList = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-2 right-0 cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out"
+                className="absolute top-2 right-0 cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out delay-150"
               >
                 <X />
               </Button>
