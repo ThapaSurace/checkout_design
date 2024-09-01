@@ -37,16 +37,16 @@ const Checkout = () => {
     <MaxWidthWrapper className=" my-4 md:my-10">
       <CheckoutBreadcrumb currentStep={currentStep} />
 
-      <div className="mt-10 flex flex-col md:flex-row gap-10 sm:gap-16 md:gap-24">
-        <div className="basis-[60%]">
+      <div className="mt-4 md:mt-10 flex flex-col md:flex-row gap-10 sm:gap-16 md:gap-24">
+        <div className="basis-[60%] order-2 md:order-1">
           {currentStep === "shipping" && (
             <ShippingForm onNext={handleNextStep} />
           )}
           {currentStep === "payment" && <PaymentForm onNext={handleNextStep} />}
           {currentStep === "review" && <OrderDetails />}
         </div>
-        {/* <div className="hidden md:block min-h-[50vh] border border-gray-200"></div> */}
-        <div className="basis-[40%] ">
+
+        <div className="basis-[40%] order-1 md:order-2">
           <h1 className="mb-4 font-bold text-xl text-gray-800">
             Order Summary
           </h1>
@@ -55,11 +55,6 @@ const Checkout = () => {
           <div className="my-4">
             <SubTotal />
           </div>
-          <Separator className="md:hidden my-4" />
-
-          {currentStep == "review" && (
-            <Button className="w-full mt-6 md:hidden">Place Order</Button>
-          )}
         </div>
       </div>
     </MaxWidthWrapper>

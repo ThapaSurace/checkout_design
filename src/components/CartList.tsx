@@ -15,7 +15,7 @@ const CartList = () => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="">Item</TableHead>
+          <TableHead>Item</TableHead>
           <TableHead>Quantity</TableHead>
           <TableHead className="text-right">Total</TableHead>
         </TableRow>

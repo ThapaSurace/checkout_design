@@ -30,7 +30,9 @@ const PaymentForm = ({ onNext }: { onNext: () => void }) => {
   };
   return (
     <div>
-      <h1 className="mb-6 text-xl font-semibold text-gray-800">Payment Form</h1>
+      <h1 className="mb-6 text-xl md:2xl font-semibold text-gray-800">
+        Payment Info
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-1">
           <Label htmlFor="username">Name</Label>

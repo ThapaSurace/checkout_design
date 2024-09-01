@@ -14,8 +14,8 @@ const OrderDetails = () => {
         <PaymentInfoCard />
       </div>
       <Separator className="my-6" />
-      <div className="md:flex justify-end hidden">
-        <Button>Place Order</Button>
+      <div className="w-full md:flex justify-end">
+        <Button className="w-full md:w-fit">Place Order</Button>
       </div>
     </div>
   );

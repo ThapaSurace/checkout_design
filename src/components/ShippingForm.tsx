@@ -47,8 +47,8 @@ const ShippingForm = ({ onNext }: { onNext: () => void }) => {
   };
   return (
     <>
-      <h1 className="mb-6 text-xl font-semibold text-gray-800">
-        Shipping Form
+      <h1 className="mb-6 text-xl md:text-2xl font-semibold text-gray-800">
+        Shipping Info
       </h1>
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col sm:flex-row gap-4">

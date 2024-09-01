@@ -4,15 +4,15 @@ import OrderSummaryCard from "@/components/OrderSummaryCard";
 
 const Cart = () => {
   return (
-    <MaxWidthWrapper className=" space-y-6  md:flex md:gap-16 my-16">
+    <MaxWidthWrapper className=" space-y-6 md:flex md:gap-16 my-10 md:my-16">
       <div className="basis-[70%]">
-        <h1 className=" text-2xl font-semibold tracking-tight mb-6 text-secondary-foreground">
+        <h1 className="text-xl md:text-2xl font-semibold tracking-tight mb-4 md:mb-6 text-secondary-foreground">
           Cart Items
         </h1>
         <CartList />
       </div>
       <div className="basis-[30%]">
-        <h1 className=" text-2xl font-semibold tracking-tight mb-6 text-secondary-foreground">
+        <h1 className="text-xl md:text-2xl font-semibold tracking-tight mb-4 md:mb-6 text-secondary-foreground">
           Order Summary
         </h1>
         <OrderSummaryCard />
