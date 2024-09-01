@@ -65,5 +65,23 @@ This is a Vite-powered React project. Follow the steps below to set up and run t
 Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/ThapaSurace/checkout_design.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd checkout_design
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the Project Locally
+
+```bash
+npm run dev
 ```
