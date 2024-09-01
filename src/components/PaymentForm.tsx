@@ -45,7 +45,7 @@ const PaymentForm = ({ onNext }: { onNext: () => void }) => {
           <Input
             type="text"
             id="cardnum"
-            placeholder="xxxx-xxxx-xxxx-xxxx"
+            placeholder="xxxxxxxxxxxxxxxx"
             className={errors.cardnum && "border-red-600 focus:border-red-600"}
             {...register("cardnum")}
           />
@@ -70,7 +70,7 @@ const PaymentForm = ({ onNext }: { onNext: () => void }) => {
             <Input
               type="text"
               id="cvv"
-              placeholder="0000"
+              placeholder="xxxx"
               className={errors.cvv && "border-red-600 focus:border-red-600"}
               {...register("cvv")}
             />
